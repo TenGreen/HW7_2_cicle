@@ -45,7 +45,7 @@ public class Main {
         int mortality = 8;
         int year = 1;
         while (year < 10) {
-            totalPopulation = totalPopulation + birthRate - mortality;
+            totalPopulation = totalPopulation + ((totalPopulation / 1000) * (birthRate - mortality));
             System.out.println("Год " + year + ", численность населения составляет " + totalPopulation);
             year++;
         }
@@ -100,16 +100,13 @@ public class Main {
     }
 
     public static void task7() {
-        System.out.println("Зажача 7");
-        int dateOfTheWeeklyReport = 2;
-        int day = 0;
-        do {
-            day++;
-            if ((day - dateOfTheWeeklyReport) % 7 == 0) {
-                System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет");
-            }
+        System.out.println("Задача 7");
+        int dateOfTheWeeklyReport = 3;
+        int day = dateOfTheWeeklyReport;
+        while ((day <= 31)) {
+            System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет");
+            day = day + 7;
         }
-        while (day <= 31);
     }
 
     public static void task8() {
@@ -117,13 +114,10 @@ public class Main {
         int flightPeriod = 79;
         int beginOfThePeriod = 2023 - 200;
         int endOfThePeriod = 2023 + 100;
-        int year = 0;
-        do {
-            if ((year >= beginOfThePeriod && year < endOfThePeriod) && (year % flightPeriod == 0)) {
-                System.out.println(year);
-            }
-            year++;
+        int year = (beginOfThePeriod + (79 - beginOfThePeriod % flightPeriod));
+        while (year <= endOfThePeriod) {
+            System.out.println(year);
+            year = year + flightPeriod;
         }
-        while (year <= endOfThePeriod);
     }
 }
